@@ -2,24 +2,24 @@ import React from "react";
 
 import classes from "./GameTable.module.css";
 
-import GameSquare from "../GameSquare/GameSquare";
+import GameSquare, {X} from "../GameSquare/GameSquare";
 
-const gameTable = ({ gameState, squareClicked }) => {
+const gameTable = ({currentSymbol, onSymbolChange }) => {
   return (
-    <div>
-      <div className={classes.GameTableRow}>
-        {gameState.slice(0, 3).map((squareSymbol, index) => (
-          <GameSquare symbol={squareSymbol} squareClicked={squareClicked} squareId={index}/>
+    <div data-testid="game-table">
+      <div data-testid="square-rows" className={classes.GameTableRow}>
+        {[0, 1, 2].map((index) => (
+          <GameSquare key={index} turn={currentSymbol === X ? 1 : 2} onSymbolChange={(symbol) => onSymbolChange(index, symbol)}/>
         ))}
       </div>
-      <div className={classes.GameTableRow}>
-        {gameState.slice(3, 6).map((squareSymbol, index) => (
-          <GameSquare symbol={squareSymbol} squareClicked={squareClicked} squareId={index + 3}/>
+      <div data-testid="square-rows" className={classes.GameTableRow}>
+        {[3, 4, 5].map((index) => (
+          <GameSquare key={index} turn={currentSymbol === X ? 1 : 2} onSymbolChange={(symbol) => onSymbolChange(index, symbol)}/>
         ))}
       </div>
-      <div className={classes.GameTableRow}>
-        {gameState.slice(6, 9).map((squareSymbol, index) => (
-          <GameSquare symbol={squareSymbol} squareClicked={squareClicked} squareId={index + 6}/>
+      <div data-testid="square-rows" className={classes.GameTableRow}>
+        {[6, 7, 8].map((index) => (
+          <GameSquare key={index} turn={currentSymbol === X ? 1 : 2} onSymbolChange={(symbol) => onSymbolChange(index, symbol)}/>
         ))}
       </div>
     </div>

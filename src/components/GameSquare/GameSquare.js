@@ -6,7 +6,7 @@ export const O = '🏥';
 export const Empty = '';
 // turn 1 | 2
 // 1 <=> X | 2 <=> O
-const gameSquare = ({turn, onSymbolChange}) => {
+const GameSquare = ({turn, onSymbolChange}) => {
   const [symbol, setSymbol] = useState(Empty);
 
   const onClick = () => {
@@ -33,4 +33,4 @@ const gameSquare = ({turn, onSymbolChange}) => {
   );
 };
 
-export default gameSquare;
+export default GameSquare;
