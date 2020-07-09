@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from "./GameTable.module.css";
 
-import GameSquare from "./GameSquare/GameSquare";
+import GameSquare from "../GameSquare/GameSquare";
 
 const gameTable = ({ gameState, squareClicked }) => {
   return (
